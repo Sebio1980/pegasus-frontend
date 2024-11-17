@@ -16,6 +16,10 @@ HEADERS += \
     $$PWD/NoCopyNoMove.h \
     $$PWD/PathTools.h \
     $$PWD/QmlHelpers.h \
+    $$PWD/libretro-common/include/libchdr/bitstream.h \
+    $$PWD/libretro-common/include/libchdr/cdrom.h \
+    $$PWD/libretro-common/include/libchdr/huffman.h \
+    $$PWD/libretro-common/include/libchdr/libchdr_zlib.h \
     $$PWD/rLog.h \
     $$PWD/Sizes.h \
     $$PWD/SqliteDb.h \
@@ -146,6 +150,11 @@ SOURCES += \
     $$PWD/IniFile.cpp \
     $$PWD/KeySequenceTools.cpp \
     $$PWD/PathTools.cpp \
+    $$PWD/libretro-common/formats/libchdr/libchdr_bitstream.c \
+    $$PWD/libretro-common/formats/libchdr/libchdr_cdrom.c \
+    $$PWD/libretro-common/formats/libchdr/libchdr_chd.c \
+    $$PWD/libretro-common/formats/libchdr/libchdr_huffman.c \
+    $$PWD/libretro-common/formats/libchdr/libchdr_zlib.c \
     $$PWD/rLog.cpp \
     $$PWD/SqliteDb.cpp \
     $$PWD/StdStringHelpers.cpp \

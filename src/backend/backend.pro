@@ -14,6 +14,7 @@ isEmpty(USE_SDL_GAMEPAD): QT += gamepad
 msvc: DEFINES *= _USE_MATH_DEFINES
 
 DEFINES *= HAVE_CDROM
+DEFINES *= HAVE_CHD
 
 SOURCES += \
     Backend.cpp \
