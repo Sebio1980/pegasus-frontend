@@ -735,12 +735,12 @@ static void rc_hash_handle_chd_close_track(void* track_handle)
 
 static void rc_hash_handle_error_log_message(const char* message)
 {
-   Log::error("Cheevos", LOGMSG("%1").arg(QString::fromStdString(message))); 
+   Log::error("Cheevos", LOGMSG("%1").arg(QString::fromLatin1(message)));
 }
 
 static void rc_hash_handle_debug_log_message(const char* message)
 {
-   Log::debug("Cheevos", LOGMSG("%1").arg(QString::fromStdString(message))); 
+   Log::debug("Cheevos", LOGMSG("%1").arg(QString::fromLatin1(message)));
 }
 
 static void rc_hash_reset_cdreader_hooks(void);
@@ -753,15 +753,18 @@ static void* rc_hash_handle_cd_open_track(
    if (string_is_equal_noncase(path_get_extension(path), "chd"))
    {
 #ifdef HAVE_CHD
-      /* special handlers for CHD file */
+      Log::debug("Cheevos", LOGMSG("special handlers for CHD file used"));
+
+       /* special handlers for CHD file */
       memset(&cdreader, 0, sizeof(cdreader));
-      cdreader.open_track = rc_hash_handle_cd_open_track;
+      cdreader.open_track = rc_hash_handle_chd_open_track;
       cdreader.read_sector = rc_hash_handle_chd_read_sector;
       cdreader.close_track = rc_hash_handle_chd_close_track;
       cdreader.first_track_sector = rc_hash_handle_chd_first_track_sector;
       rc_hash_init_custom_cdreader(&cdreader);
 
-      return rc_hash_handle_chd_open_track(path, track);
+      return cdreader.open_track(path, track);
+      //return rc_hash_handle_chd_open_track(path, track);
 #else
       Log::debug("Cheevos", LOGMSG("Cannot generate hash from CHD without HAVE_CHD compile flag"));
       return NULL;
@@ -845,7 +848,7 @@ QString calculate_hash_from_file(QString rom_file, QString log_tag)
     rc_hash_init_error_message_callback(rc_hash_handle_error_log_message);
 
     //Take care: verbose mode could be bugguy as for arcade .zip file hash calculation due to snprintf no-secured function used in logs :-(
-    //rc_hash_init_verbose_message_callback(rc_hash_handle_debug_log_message);
+    rc_hash_init_verbose_message_callback(rc_hash_handle_debug_log_message);
 
     rc_hash_reset_cdreader_hooks();
     const char* path = targetfile.toUtf8().data(); //for testing //toLocal8Bit().data(); //.toUtf8().data();

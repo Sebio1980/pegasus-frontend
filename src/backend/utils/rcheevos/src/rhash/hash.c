@@ -22,9 +22,6 @@ static int rc_hash_whole_file(char hash[33], const char* path);
 
 /* ===================================================== */
 
-static rc_hash_message_callback error_message_callback = NULL;
-rc_hash_message_callback verbose_message_callback = NULL;
-
 void rc_hash_init_error_message_callback(rc_hash_message_callback callback)
 {
   error_message_callback = callback;
