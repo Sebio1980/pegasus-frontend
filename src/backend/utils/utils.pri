@@ -1,8 +1,27 @@
 #to find include files of rcheevos/libretro-common parts for QT
 INCLUDEPATH += . utils/rcheevos/include
 INCLUDEPATH += . utils/libretro-common/include
+#to find include files of 7zip parts for QT
+INCLUDEPATH += . utils/7zip
 
 HEADERS += \
+    $$PWD/7zip/7z.h \
+    $$PWD/7zip/7zBuf.h \
+    $$PWD/7zip/7zCrc.h \
+    $$PWD/7zip/7zFile.h \
+    $$PWD/7zip/7zTypes.h \
+    $$PWD/7zip/7zVersion.h \
+    $$PWD/7zip/Bcj2.h \
+    $$PWD/7zip/Bra.h \
+    $$PWD/7zip/Compiler.h \
+    $$PWD/7zip/CpuArch.h \
+    $$PWD/7zip/Delta.h \
+    $$PWD/7zip/LzFind.h \
+    $$PWD/7zip/LzHash.h \
+    $$PWD/7zip/Lzma2Dec.h \
+    $$PWD/7zip/LzmaDec.h \
+    $$PWD/7zip/LzmaEnc.h \
+    $$PWD/7zip/Precomp.h \
     $$PWD/CommandTokenizer.h \
     $$PWD/DiskCachedNAM.h \
     $$PWD/FakeQKeyEvent.h \
@@ -19,7 +38,8 @@ HEADERS += \
     $$PWD/libretro-common/include/libchdr/bitstream.h \
     $$PWD/libretro-common/include/libchdr/cdrom.h \
     $$PWD/libretro-common/include/libchdr/huffman.h \
-    $$PWD/libretro-common/include/libchdr/libchdr_zlib.h \
+    $$PWD/libretro-common/include/libchdr/lzma.h \
+    $$PWD/libretro-common/include/libchdr/minmax.h \
     $$PWD/rLog.h \
     $$PWD/Sizes.h \
     $$PWD/SqliteDb.h \
@@ -141,6 +161,23 @@ HEADERS += \
     $$PWD/liboping/src/oping.h
     
 SOURCES += \
+    $$PWD/7zip/7zArcIn.c \
+    $$PWD/7zip/7zBuf.c \
+    $$PWD/7zip/7zCrc.c \
+    $$PWD/7zip/7zCrcOpt.c \
+    $$PWD/7zip/7zDec.c \
+    $$PWD/7zip/7zFile.c \
+    $$PWD/7zip/7zStream.c \
+    $$PWD/7zip/Bcj2.c \
+    $$PWD/7zip/Bra.c \
+    $$PWD/7zip/Bra86.c \
+    $$PWD/7zip/BraIA64.c \
+    $$PWD/7zip/CpuArch.c \
+    $$PWD/7zip/Delta.c \
+    $$PWD/7zip/LzFind.c \
+    $$PWD/7zip/Lzma2Dec.c \
+    $$PWD/7zip/LzmaDec.c \
+    $$PWD/7zip/LzmaEnc.c \
     $$PWD/CommandTokenizer.cpp \
     $$PWD/DiskCachedNAM.cpp \
     $$PWD/FakeQKeyEvent.cpp \
@@ -154,6 +191,7 @@ SOURCES += \
     $$PWD/libretro-common/formats/libchdr/libchdr_cdrom.c \
     $$PWD/libretro-common/formats/libchdr/libchdr_chd.c \
     $$PWD/libretro-common/formats/libchdr/libchdr_huffman.c \
+    $$PWD/libretro-common/formats/libchdr/libchdr_lzma.c \
     $$PWD/libretro-common/formats/libchdr/libchdr_zlib.c \
     $$PWD/rLog.cpp \
     $$PWD/SqliteDb.cpp \
