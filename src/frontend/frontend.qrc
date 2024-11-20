@@ -72,7 +72,7 @@
         <file>dialogs/MultifileSelector.qml</file>
         <file>dialogs/Shade.qml</file>
         <file>dialogs/GenericOkDialog.qml</file>
-        <file>menu/AccountSettings.qml</file>
+        <file>menu/AccountSettings.qml</file>        
         <file>menu/SystemSettings.qml</file>
         <file>menu/GamesSettings.qml</file>
         <file>menu/ControllersSettings.qml</file>
@@ -259,6 +259,7 @@
         <file>menu/settings/emulatorsetting/XemuSettings.qml</file>
         <file>menu/settings/emulatorsetting/SupermodelSettings.qml</file>
         <file>menu/settings/emulatorsetting/PpssppSettings.qml</file>
+        <file>menu/settings/emulatorsetting/SuyuSettings.qml</file>
         <file>menu/settings/emulatorsetting/DolphinTriforceSettings.qml</file>
         <file>assets/sinden/SindenBorderBlue_Wide.png</file>
         <file>assets/sinden/SindenBorderCRT_Wide.png</file>
